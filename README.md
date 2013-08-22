@@ -27,8 +27,6 @@ And `cd` into the directory (all instructions below assume you are in the `minot
 
 ##Run Locally
 
-####Windows and Mac
-
 Install all the dependencies:
 
     npm install (you may need to prefix this with sudo if you're on Mac)
@@ -44,8 +42,6 @@ Then navigate to `http://localhost:3000` open up two _different_ browsers (*not*
 ###Documentation
 
 The documenation was available on the front page (right under the sign up for free button): https://www.nodejitsu.com/getting-started/
-
-####Windows and Mac
 
 Install the Nodejitsu Package
 
@@ -89,8 +85,6 @@ Install Heroku toolbelt from here: https://toolbelt.heroku.com/
 
 Sign up via the website (no credit card required).
 
-####Windows and Mac
-
 Login using the command line tool:
 
     heroku login
@@ -124,8 +118,6 @@ http://www.windowsazure.com/en-us/develop/nodejs/tutorials/create-a-website-(mac
 Install the command line tools from here:
 
 http://www.windowsazure.com/en-us/downloads/#cmd-line-tools (on Windows, be sure to install the cross platform command line interface...not the powershell version)
-
-####Windows and Mac
 
 From the command line, first download your publish settings (this will rediret you to a website):
 
