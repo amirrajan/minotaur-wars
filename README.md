@@ -8,7 +8,7 @@ Additionally, here are instructions to deploy this app to Nodejitsu, Heroku, and
 
 Game can be played on Chrome and iPad (in landscape mode). A screen resolution of at least 1400x700 on pc (for best experience). Make sure your zoom level is normal (100%).
 
-Once you have logged in, you'll be given 3 units under your control delineated by green squares.
+Once you have entered a name for your team, you'll be given 3 units under your control delineated by green squares.
 
 Select one of your units by clicking, you should see your movable area. Move next to another player by clicking in a blue square. To attack them, simply click on the opposing unit to execute an attack.
 
