@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8" />
+  <title>Tactics, Yo</title>
+  <link rel="stylesheet" href="/public/css/app.css" />
+</head>
+<body <% if (!username) { %> class="no-auth" <% } %>>
+  <div class="container">
+      <div id="banner" class="top-bar">
+        <ul>
+          <li class="name"><h1><a href="javascript:;">Tactics, Yo</a></h1></li>
+        </ul>                    
+      </div>
+      <div class="game">
+        <canvas id="map" width="1400" height="700"></canvas>
+        <canvas id="ground-darksand" width="140" height="70"></canvas>
+        <canvas id="ground_lightgrey" width="140" height="70"></canvas>
+      </div>
+    <div class="dead">
+      <div class="dead-content">
+        <p>You died!</p>
+        <a class="respawn-button button alert">Respawn</a>
+      </div>
+    </div>
+
+    <div class="auth">
+      <div class="auth-content">
+        <p>Enter your team name</p>
+        <input type="text" id="teamName" style="width: 200px; margin-left: auto; margin-right: auto" /><br/>
+        <a class="button" id="loginButton">Join</a>
+      </div>
+    </div>
+  </div>
+  <script id="v-game" type="text/view"> 
+  </script>
+
+  <script id="v-banner" type="text/view">
+    <section>
+    </section>
+  </script>
+
+    <!-- scratch canvases -->
+    <div style="display: none">
+      <canvas id="ground_1" width="140" height="70" style="border: solid 1px black"></canvas>
+      <canvas id="ground_2" width="140" height="70" style="border: solid 1px black"></canvas>
+      <canvas id="ground_3" width="140" height="70" style="border: solid 1px black"></canvas>
+      <canvas id="background" width="1400" height="700"></canvas>
+    </div>
+  </div>
+
+  <audio id="hit1" type='audio/wav; codecs="1"' src="/public/sounds/hit_1.wav" preload></audio>
+  <audio id="die1" type='audio/wav; codecs="1"' src="/public/sounds/die_1.wav" preload></audio>
+  <audio id="die2" type='audio/wav; codecs="1"' src="/public/sounds/die_2.wav" preload></audio>
+  <audio id="die3" type='audio/wav; codecs="1"' src="/public/sounds/die_3.wav" preload></audio>
+  <audio id="die4" type='audio/wav; codecs="1"' src="/public/sounds/die_4.wav" preload></audio>
+  <audio id="die5" type='audio/wav; codecs="1"' src="/public/sounds/die_5.wav" preload></audio>
+  
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/public/javascripts/vendor/jquery.js"></script>  
+  <script src="/public/javascripts/vendor/jquery-cookie.js"></script>  
+  <script src="/public/javascripts/vendor/underscore.js"></script>    
+  <script src="/public/javascripts/vendor/backbone.js"></script>
+  <script src="/public/javascripts/vendor/backbone.marionette.js"></script>
+  <script src="/public/javascripts/vendor/rivets.js"></script>
+  <script src="/public/javascripts/vendor/rivets.backbone.js"></script>
+  <script src="/public/javascripts/foundation/modernizr.foundation.js"></script>  
+  <script src="/public/javascripts/foundation/jquery.foundation.reveal.js"></script>
+  <script src="/public/javascripts/foundation/jquery.foundation.buttons.js"></script>
+  <script src="/public/javascripts/foundation/app.js"></script>
+
+  <script src="/public/javascripts/vendor/lucid.js"></script>
+
+  <script src="/public/javascripts/bootstrap.js"></script>
+  <script src="/public/javascripts/models/unit.js"></script>
+  <script src="/public/javascripts/data.js"></script>
+
+  <script src="/public/javascripts/plugins.js"></script>
+  <script src="/public/javascripts/rules.js"></script>
+  <script src="/public/javascripts/radius.js"></script>
+	<script src="/public/javascripts/map.js"></script>
+	<script src="/public/javascripts/assets.js"></script>
+	<script src="/public/javascripts/sprite.js"></script>
+	<script src="/public/javascripts/unit.js"></script>
+  <script src="/public/javascripts/client.js"></script>
+	<script>
+		$(document).ready(function() {
+			var canvas = $('#map').get(0);
+			var c = canvas.getContext('2d');
+
+			Tactics.Assets.images.ground_1.scratchCanvas = $('#ground_1').get(0);
+			Tactics.Assets.images.ground_2.scratchCanvas = $('#ground_2').get(0);
+			Tactics.Assets.images.ground_3.scratchCanvas = $('#ground_3').get(0);
+
+			Tactics.Bootstrap.go(canvas, c);
+		});
+  </script>
+  <script>
+    $(function() {
+      var username = $.cookie('username');
+
+      if(!username) {
+        $authWindow.show();
+      }
+    });
+    // Quick fixes. NO TIME!!!!
+    // Respawn  
+    var $deadWindow = $('.dead')
+      , $authWindow = $('.auth')
+      , $joinWindow = $('.joiner')
+      , $loginButton = $('#loginButton')
+      , $teamName = $('#teamName')
+      , authed = !$('body').hasClass('no-auth');
+
+    if (!authed) {
+      $authWindow.show();
+    }
+
+    $loginButton.click(function() {
+      var teamName = $.trim($teamName.val());
+      if(teamName) {
+        $.cookie('username', teamName);
+        Tactics.client.join();
+        window.location = '/';
+      }
+    });
+
+    $('.respawn-button, .joiner-button').click(function(){
+      Tactics.client.join();
+      $deadWindow.hide();
+      $joinWindow.hide();
+    })
+
+    Tactics.emitter.on('all dead', function(){
+      $deadWindow.show();
+    });
+  </script>
+</body>
+</html>
