@@ -112,7 +112,7 @@ Install the command line tools from here:
 
 http://www.windowsazure.com/en-us/downloads/#cmd-line-tools (on Windows, be sure to install the cross platform command line interface...not the powershell version)
 
-####Mac
+####Windows and Mac
 
 From the command line, first download your publish settings (this will rediret you to a website):
 
