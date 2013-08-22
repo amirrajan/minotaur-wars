@@ -2,6 +2,19 @@
 
 Minotaur wars is a realtime grid based tactics game built on NodeJS.
 
+Additionally, here are instructions to deploy this app to Nodejitsu, Heroku, and Azure via Windows or Mac.
+
+##Observed differences between Nodejitsu, Heroku, and Azure
+- Nodejitsu's registration process can be done through the command line (pretty cool)
+- Heroku requires a `Procfile` for NodeJS apps (Nodejitsu does not)
+- Azure requires a `iis.yml` file for NodeJS apps (Nodejitsu does not)
+- The port the app is running on is dynamically assigned for Heroku and Azure, Nodejitsu has you specify the port.
+- Azure requires a credit card to sign up and the free trial lasts for 30 days. Heroku and Nodejitsu lets you keep sandboxes for free (untimed).
+- Azure doesn't support NodeJS v0.10.x here are changes between 0.8.x and 0.10.x: https://github.com/joyent/node/wiki/Api-changes-between-v0.8-and-v0.10
+- Here is a blog post entry about 0.10.x (which is a stable release): http://blog.nodejs.org/2013/03/11/node-v0-10-0-stable/
+
+##Instructions
+
 Go to http://nodejs.org and install NodeJS
 
 Then clone this repo:
@@ -136,11 +149,3 @@ List of your websites:
 
 And your app should be up on Azure.
 
-##Observed differences
-- Nodejitsu's registration process can be done through the command line (pretty cool)
-- Heroku requires a `Procfile` for NodeJS apps (Nodejitsu does not)
-- Azure requires a `iis.yml` file for NodeJS apps (Nodejitsu does not)
-- The port the app is running on is dynamically assigned for Heroku and Azure, Nodejitsu has you specify the port.
-- Azure requires a credit card to sign up and the free trial lasts for 30 days. Heroku and Nodejitsu lets you keep sandboxes for free (untimed).
-- Azure doesn't support NodeJS v0.10.x here are changes between 0.8.x and 0.10.x: https://github.com/joyent/node/wiki/Api-changes-between-v0.8-and-v0.10
-- Here is a blog post entry about 0.10.x (which is a stable release): http://blog.nodejs.org/2013/03/11/node-v0-10-0-stable/
