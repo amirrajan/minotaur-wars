@@ -1,2 +1,0 @@
-#! /usr/bin/env bash
-redis-cli -h nodejitsudb2270155241.redis.irstack.com -p 6379 -a nodejitsudb2270155241.redis.irstack.com:f327cfe980c971946e80b8e975fbebb4
