@@ -51,15 +51,13 @@ Install all the dependencies:
 
     npm install (you may need to prefix this with sudo if you're on Mac)
 
-Runn the app:
+Run the app:
 
     node server.js
 
 Then navigate to `http://localhost:3000` open up two _different_ browsers (*not* IE) and play!
 
 ##Signing up, and deploying to Nodejitsu
-
-###Documentation
 
 The documenation was available on the front page (right under the sign up for free button): https://www.nodejitsu.com/getting-started/
 
@@ -97,8 +95,6 @@ And your app should be up on Nodejitsu.
 
 ##Signing up, and deploying to Heroku
 
-###Documentation
-
 From heroku.com, click Documentation, then click the Getting Started button, then click Node.js from the list of options on the left...which will take you here: https://devcenter.heroku.com/articles/nodejs 
 
 Install Heroku toolbelt from here: https://toolbelt.heroku.com/
@@ -128,8 +124,6 @@ Open the app (same as opening it in the browser):
 And your app should be up on Heroku.
 
 ##Signing up, and deploying to Azure
-
-###Documentation
 
 From windowsazure.com, click Documentation, click Developer Center, click node.js, then click the Learn More button which will take you here:
 
