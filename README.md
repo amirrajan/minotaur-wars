@@ -27,9 +27,10 @@ To pick up a crystal, just move to the square and your health will be restored. 
 - Heroku requires a `Procfile` for NodeJS apps (Nodejitsu does not).
 - Azure requires a `iis.yml` file for NodeJS apps (Nodejitsu does not).
 - The port the app is running on is dynamically assigned for Heroku and Azure, Nodejitsu has you specify the port.
-- Azure requires a credit card to sign up
-- Nodejitsu requires a credit card after 30 days (but doesn't require one to sign up)
-- Heroku will let you run your NodeJS app (one dyno) for free
+- Nodejitsu supports websockets, Heroku and Azure do not.
+- Azure requires a credit card to sign up.
+- Nodejitsu requires a credit card after 30 days (but doesn't require one to sign up).
+- Heroku will let you run your NodeJS app (one dyno) for free.
 - Azure doesn't support NodeJS v0.10.x (yet) here are changes between 0.8.x and 0.10.x: https://github.com/joyent/node/wiki/Api-changes-between-v0.8-and-v0.10
 - Here is a blog post entry about 0.10.x (which is a stable release): http://blog.nodejs.org/2013/03/11/node-v0-10-0-stable/
 
